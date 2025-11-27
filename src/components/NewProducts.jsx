@@ -11,7 +11,6 @@ export default function NewProducts() {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => {
-        // Sort by date (latest first) and take first 3
         const sorted = data
           .sort((a, b) => new Date(b.date) - new Date(a.date))
           .slice(0, 3);

@@ -54,12 +54,12 @@ export default function AddProductPage() {
     );
 
     if (res.status === 200 || res.status === 201) {
-      setMessage("Product added successfully");
+      toast.success("Product added successfully")
       setTitle("");
       setShortDesc("");
       setFullDesc("");
       setPrice("");
-      setCategory("Medium");
+      setCategory("Select a category");
       setImageUrl("");
     } else {
       setMessage("Failed to add product");

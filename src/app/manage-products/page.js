@@ -45,7 +45,7 @@ export default function ManageProductsPage() {
       `http://localhost:5000/products/${id}`
     );
     if (res.status === 200) {
-      setMessage("Product deleted successfully");
+      toast.success("Product deleted successfully")
       fetchProducts();
     } else {
       setMessage("Failed to delete product");

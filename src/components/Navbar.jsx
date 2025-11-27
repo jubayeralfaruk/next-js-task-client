@@ -99,7 +99,10 @@ export default function Navbar() {
               </li>
               <li>
                 <button
-                  onClick={() => signOut({ callbackUrl: "/" })} // Redirect after logout
+                  onClick={() => {
+                    signOut({ callbackUrl: "/" })
+                    toast.success("LogOut Successfully.")
+                  }} // Redirect after logout
                   className="w-full text-left">
                   Logout
                 </button>

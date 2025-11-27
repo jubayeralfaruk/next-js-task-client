@@ -45,7 +45,7 @@ export default function UpdateProductPage() {
     );
 
     if (res.status === 200) {
-      setMessage("Product updated successfully");
+      toast.success("Product updated successfully")
       router.push("/manage-products");
     } else {
       setMessage("Failed to update product");

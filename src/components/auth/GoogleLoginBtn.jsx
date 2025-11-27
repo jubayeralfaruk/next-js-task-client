@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { toast } from "react-toastify";
 
 export default function GoogleLoginBtn() {
   const [loading, setLoading] = useState(false);
@@ -10,6 +11,7 @@ export default function GoogleLoginBtn() {
     setLoading(true);
     try {
       await signIn("google", { callbackUrl: "/" });
+      toast.success("Google login successful.")
     } catch (error) {
       console.error("Login error:", error);
       setLoading(false);
