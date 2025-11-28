@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function ManageProductsPage() {
   const { data: session, status } = useSession();
@@ -23,7 +24,7 @@ export default function ManageProductsPage() {
     if (!session) return;
 
     const res = await axios.get(
-      `http://localhost:5000/products?email=${session.user.email}`
+      `https://next-js-task-server-seven.vercel.app/products?email=${session.user.email}`
     );
     setProducts(res.data);
   };
@@ -42,10 +43,10 @@ export default function ManageProductsPage() {
     if (!confirmDelete) return;
 
     const res = await axios.delete(
-      `http://localhost:5000/products/${id}`
+      `https://next-js-task-server-seven.vercel.app/products/${id}`
     );
     if (res.status === 200) {
-      toast.success("Product deleted successfully")
+      toast.success("Product deleted successfully");
       fetchProducts();
     } else {
       setMessage("Failed to delete product");
@@ -53,7 +54,7 @@ export default function ManageProductsPage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-7xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-4">Manage My Products</h1>
 
       {message && <p className="mb-4 text-sm text-green-600">{message}</p>}

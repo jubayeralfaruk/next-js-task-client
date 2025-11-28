@@ -6,6 +6,7 @@ import { auth } from "@/firebase/firebase.init";
 import { useRouter } from "next/navigation";
 import GoogleLoginBtn from "@/components/auth/GoogleLoginBtn";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -47,7 +48,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center max-w-7xl mx-auto p-6">
       <div className="max-w-md w-full p-8 rounded-xl shadow-2xl">
         <h1 className="text-2xl font-bold mb-6 text-center">Create Your Account</h1>
 

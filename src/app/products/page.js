@@ -11,9 +11,11 @@ export default function ProductsListPage() {
   const [category, setCategory] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/products").then((res) => {
-      setProducts(res.data);
-    });
+    axios
+      .get("https://next-js-task-server-seven.vercel.app/products")
+      .then((res) => {
+        setProducts(res.data);
+      });
     // setFilteredData(filtered)
   }, []);
   const filtered = products.filter((p) => {
@@ -23,7 +25,7 @@ export default function ProductsListPage() {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
+    <div className="max-w-7xl mx-auto px-6 py-16">
       <h1 className="text-3xl font-bold mb-2">Product List</h1>
       <p className="text-gray-600 mb-6">
         Browse all available items in one place.

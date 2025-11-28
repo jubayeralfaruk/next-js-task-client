@@ -16,10 +16,10 @@ export default function ProductDetailsPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/products/${id}`)
+      .get(`https://next-js-task-server-seven.vercel.app/products/${id}`)
       .then((res) => {
         console.log("data fetch", res);
-        
+
         setProduct(res.data);
         setLoading(false);
       })
@@ -29,15 +29,12 @@ export default function ProductDetailsPage() {
       });
   }, [id]);
 
-  if (loading)
-    return <p className="p-10 text-center">Loading...</p>;
+  if (loading) return <p className="p-10 text-center">Loading...</p>;
 
-  if (error)
-    return <p className="p-10 text-center text-red-500">{error}</p>;
+  if (error) return <p className="p-10 text-center text-red-500">{error}</p>;
 
   return (
-    <div className="max-w-4xl mx-auto py-14 px-4">
-
+    <div className="mx-auto py-14 px-6 md:max-w-lg lg:max-w-4xl">
       {/* Large Banner Image */}
       <img
         src={product.imageUrl}
@@ -71,11 +68,15 @@ export default function ProductDetailsPage() {
       {/* Full Description */}
       <p className="mt-8 text-lg leading-relaxed">{product.fullDesc}</p>
 
+      <p className="text-teal-800 pt-6">
+        If you want to buy the product, you can email the product owner. <br/>
+        <span>Owner Email: {product.createBy}</span>
+      </p>
+
       {/* Back Button */}
       <Link
         href="/products"
-        className="inline-block mt-10 bg-gray-800 text-white px-5 py-2 rounded hover:bg-gray-900 transition"
-      >
+        className="inline-block mt-10 bg-gray-800 text-white px-5 py-2 rounded hover:bg-gray-900 transition">
         ← Back to Products
       </Link>
     </div>
