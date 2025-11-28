@@ -28,15 +28,18 @@ It also includes authentication using **Firebase** and social login with Google.
 ### Installation Steps
 
 1. Clone the repository:
+
 git clone https://github.com/your-username/take-your-gadgets.git
 cd take-your-gadgets
 
-2. Install dependencies:
+3. Install dependencies:
+
 npm install
 # or
 yarn install
 
 3. Create a .env file in the root directory and add your Firebase and NextAuth credentials:
+
 NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
@@ -50,9 +53,11 @@ NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=your_nextauth_secret
 
 4. Run the development server:
+
 npm run dev
 # or
 yarn dev
 
 5. Open your browser and visit:
+
 http://localhost:3000
